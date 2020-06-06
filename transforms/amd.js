@@ -54,6 +54,12 @@ module.exports = function(file, api, options) {
                     return util.createImportStatement(moduleName, variableName);
                 });
 
+                const requireIndex = props.findIndex(e=>e.value=='require')
+                if(requireIndex >= 0){
+                    //remove import 'require'
+                    importStatements.splice(requireIndex,1)
+                }
+
                 // add the body after the import statements
                 Array.prototype.push.apply(importStatements, p.value.arguments[1].body.body);
 
