@@ -73,7 +73,7 @@ module.exports = function(file, api, options) {
         });
 
         // re-add comment to to the top
-        root.get().node.comments = leadingComment;
+//        root.get().node.comments = leadingComment;
 
         return root.toSource(util.getRecastConfig(options));
 };
